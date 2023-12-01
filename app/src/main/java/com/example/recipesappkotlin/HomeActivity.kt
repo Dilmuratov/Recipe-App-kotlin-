@@ -1,5 +1,6 @@
 package com.example.recipesappkotlin
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -19,6 +20,15 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setUpRecyclerView()
+
+        initListeners()
+    }
+
+    private fun initListeners() {
+        binding.editTextText.setOnClickListener {
+            val intent = Intent(this, SearchActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun setUpRecyclerView() {
